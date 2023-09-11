@@ -29,7 +29,7 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#09325a"
       showAlert("Dark mode has been enabled", "success")
-      document.title = "TextUtils - Dark Mode"
+      // document.title = "TextUtils - Dark Mode"
       // setInterval(() =>{
       //   document.title = "TextUtils is Amazing Mode"
       // },2000)
@@ -41,7 +41,7 @@ function App() {
       setMode("light")
       document.body.style.backgroundColor = "white"
       showAlert("Light mode has been enabled", "success")
-      document.title = "TextUtils - Light Mode"
+      // document.title = "TextUtils - Light Mode"
     }
   }
   return (
@@ -62,7 +62,7 @@ function App() {
           <Routes>
             <Route path="/"> 
               {/* index means go to the same path i.e. =>  / */}
-              <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
+              <Route exact index element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Remove Extra Space" mode={mode} />} />
               {/* <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} */}
               <Route exact path='about' element={<About mode={mode}/>} />  
             </Route>

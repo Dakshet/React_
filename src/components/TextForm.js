@@ -26,6 +26,7 @@ export default function TextForm(props) {
         const text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value)
+        document.getSelection().removeAllRanges()
         props.showAlert("Copy the text sucessfully!", "success")
     }
 
@@ -59,16 +60,16 @@ export default function TextForm(props) {
     return (
         <>
             <div className='container' style={{color: props.mode==="light"?"grey":"white"}}>
-                <h1>{props.heading}</h1>
+                <h1 className='my-2'>{props.heading}</h1>
                 <div className="mb-3">
                     <textarea className="form-control" onChange={handleOnChange} value={text} style={{backgroundColor: props.mode==="dark"?"#13466e":"white", color: props.mode==="light"?"grey":"white"}} id="myBox" rows="8"></textarea>
                 </div>
-                <button className='btn btn-primary mx-3 my-2' onClick={handleUpClick}>Convert to Uppercase</button>
-                <button className='btn btn-primary mx-3 my-2' onClick={handleLowClick}>Convert to Lowercase</button>
-                <button className='btn btn-primary mx-3 my-2' onClick={handleClearClick}>Clear</button>
-                <button className='btn btn-primary mx-3 my-2' onClick={handleCopyTextClick}>Copy</button>
-                <button className='btn btn-primary mx-3 my-2' onClick={handleRemoveExtraSpacesClick}>Removing Space</button>
-                <button className='btn btn-primary mx-3 my-2' onClick={handleExtractEmailClick}>Extract EmailID</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-3 my-2' onClick={handleUpClick}>Convert to Uppercase</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-3 my-2' onClick={handleLowClick}>Convert to Lowercase</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-3 my-2' onClick={handleClearClick}>Clear</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-3 my-2' onClick={handleCopyTextClick}>Copy</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-3 my-2' onClick={handleRemoveExtraSpacesClick}>Removing Space</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-3 my-2' onClick={handleExtractEmailClick}>Extract EmailID</button>
             </div>
             <div className="container my-3" style={{color: props.mode==="light"?"grey":"white"}}>
                 <h2>Your text summary</h2>
