@@ -64,7 +64,7 @@ function App() {
               {/* index means go to the same path i.e. =>  / */}
               <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
               {/* <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} */}
-              <Route exact path='about' element={<About />} />  
+              <Route exact path='about' element={<About mode={mode}/>} />  
             </Route>
           </Routes>
         </div>
