@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");  //Whether dark mode is enabled or not
@@ -46,33 +46,37 @@ function App() {
   }
   return (
     <>
-      {/* <Navbar title="Amazon" about="About Us"/>
-            <Navbar/> */}
-      {/* <Router> */}
+      {/* <Navbar title="Amazon" about="About Us"/> */}
+            {/* <Navbar/> */}
+      <Router>
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
 
         <Alert alert={alert} />
 
         <div className="container my-3">
-          <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
+          {/* <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} /> */}
 
           {/* /users -->  Component1
               /users/home -->  Component2 */}
 
-          {/* <Routes>
-            <Route path="/"> */}
+          <Routes>
+            <Route path="/"> 
               {/* index means go to the same path i.e. =>  / */}
-              {/* <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
-              {/* <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
-              <Route exact path='about' element={<About />} />   */}
-            {/* </Route>
-          </Routes> */}
+              <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
+              {/* <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} */}
+              <Route exact path='about' element={<About />} />  
+            </Route>
+          </Routes>
         </div>
-      {/* </Router> */}
+      </Router>
 
-      {/* <TextForm heading="King Text" /> */}
+     {/* <TextForm heading="King Text" /> */}
     </>
   );
 }
 
 export default App;
+
+
+
+
